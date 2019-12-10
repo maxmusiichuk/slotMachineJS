@@ -30,10 +30,12 @@
 
         main {
             border-radius: 5px;
-            background-color: #EF5350;
             padding: 20px 15px;
             width: 920px;
             margin: 0 auto;
+            margin-top: 200px;
+            position: relative;
+            z-index: 1;
         }
 
         section#status {
@@ -42,26 +44,29 @@
             padding-bottom: 25px;
             border-radius: 5px;
             text-align: center;
-            background-color: #37474F;
-            color: #FFFFFF;
+            /*background-color: #37474F;*/
+            color: yellow;
             font-size: 25px;
             font-family: 'Permanent Marker', cursive;
         }
 
         section#Slots {
             border-radius: 15px;
-            background-color: #FAFAFA;
+            /*background-color: #FAFAFA;*/
+            margin-top: 170px;
+            margin-bottom: 170px;
         }
 
         section#Gira {
             margin-top: 25px;
-            padding-top: 25px;
-            padding-bottom: 25px;
+            padding-bottom: 10px;
             border-radius: 5px;
             text-align: center;
             background-color: #AB47BC;
             color: #FFFFFF;
             font-size: 25px;
+            width: 250px;
+            height: 25px;
         }
 
         section#Gira:hover {
@@ -131,12 +136,25 @@
         .a7 {
             background-image: url("images/poker.png");
         }
+
+        .opacity_bg{
+            background: rgba(191, 8, 212, 0.5);
+            width: 960px;
+            height: 500px;
+            border-radius: 5px;
+            position: relative;
+            z-index: -5;
+            left: 290px;
+            top: 806px;
+        }
+
     </style>
 </head>
 <html>
 <body onload="toggleAudio()">
+<div class="opacity_bg"></div>
 <main>
-    <section id="status">WELCOME!</section>
+    <section id="status">Space Casino</section>
     <section id="Slots">
         <div id="slot1" class="a1"></div>
         <div id="slot2" class="a1"></div>
@@ -295,7 +313,7 @@
     }
 
     function toggleAudio() {
-        if (!audio) {
+        if (audio) {
             audio = !audio;
             for (var x of spin) {
                 x.volume = 0.5;
