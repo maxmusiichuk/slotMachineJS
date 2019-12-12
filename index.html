@@ -8,6 +8,7 @@
 
         body {
             background-image: url(images/background.png);
+            max-width: 1200px;
         }
 
         a {
@@ -16,69 +17,87 @@
         }
 
         h3 {
-            margin-top: 12px;
         }
 
         * {
-            margin: 0px;
         }
 
         body {
             background-color: #424242;
             font-family: 'Permanent Marker', cursive;
+            margin: 0 auto;
         }
 
         main {
             border-radius: 5px;
             padding: 20px 15px;
-            width: 920px;
-            margin: 0 auto;
-            margin-top: 200px;
+            margin-top: -400px;
             position: relative;
             z-index: 1;
         }
 
         section#status {
-            margin-bottom: 25px;
             padding-top: 25px;
             padding-bottom: 25px;
             border-radius: 5px;
             text-align: center;
-            /*background-color: #37474F;*/
             color: yellow;
             font-size: 25px;
             font-family: 'Permanent Marker', cursive;
         }
 
-        section#Slots {
+        section#Slots1{
+            margin-top: 40px;
+        }
+
+        section#Slots, section#Slots1, section#Slots3 {
             border-radius: 15px;
-            /*background-color: #FAFAFA;*/
-            margin-top: 170px;
-            margin-bottom: 170px;
+            text-align: center;
+            /*margin-bottom: 170px;*/
+            /*margin-top: 215px;*/
         }
 
         section#Gira {
-            margin-top: 25px;
             padding-bottom: 10px;
             border-radius: 5px;
             text-align: center;
-            background-color: #AB47BC;
-            color: #FFFFFF;
-            font-size: 25px;
-            width: 250px;
-            height: 25px;
+            background-color: green;
+            border: 2px solid darkgreen;
+            color: darkgreen;
+            font-size: 15px;
+            width: 104px;
+            height: 15px;
+            top: 72px;
+            position: relative;
+            left: 650px;
+            z-index: 5;
         }
 
-        section#Gira:hover {
-            background-color: #BA68C8;
+        section#AddScore{
+            padding-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+            background-color: yellow;
+            border: 2px solid darkorange;
+            color: darkorange;
+            font-size: 15px;
+            width: 104px;
+            height: 15px;
+            top: 44px;
+            position: relative;
+            left: 870px;
+            z-index: 5;
         }
 
         section#options {
-            margin-top: 20px;
             padding-top: 5px;
             border-radius: 5px;
-            background-color: #C62828;
+            background-color: grey;
+            opacity: 0.5;
+            height: 50px;
             color: #FFFFFF;
+            width: 825px;
+            margin: 0 auto;
         }
 
         .option {
@@ -93,24 +112,31 @@
             overflow: hidden;
             animation-duration: 1s;
             color: #BDBDBD;
-            margin-top: 50px;
-            margin-left: 30%;
-            margin-right: 30%;
             display: none;
         }
 
-        #slot1, #slot2, #slot3, #slot4, #slot5 {
+        #slot1, #slot2, #slot3, #slot4, #slot5{
             display: inline-block;
-            margin-top: 5px;
-            margin-left: 15px;
-            margin-right: 15px;
             background-size: 150px;
             width: 149px;
             height: 150px;
+            border: 4px solid grey;
+            border-radius: 10px;
+        }
+
+        #slot11, #slot21, #slot31, #slot41, #slot51,#slot13, #slot23, #slot33, #slot43, #slot53{
+            display: inline-block;
+            background-size: 150px;
+            width: 149px;
+            height: 150px;
+            /*border: 4px solid grey;*/
+            /*border-radius: 10px;*/
+            opacity: 0.5;
         }
 
         .a1 {
             background-image: url("images/banana.png");
+            /*background-repeat: no-repeat;*/
         }
 
         .a2 {
@@ -139,22 +165,29 @@
 
         .opacity_bg{
             background: rgba(191, 8, 212, 0.5);
-            width: 960px;
+            width: 825px;
             height: 500px;
             border-radius: 5px;
             position: relative;
             z-index: -5;
-            left: 290px;
-            top: 806px;
+            margin: 0 auto;
+            top: 240px;
         }
 
     </style>
 </head>
 <html>
-<body onload="toggleAudio()">
 <div class="opacity_bg"></div>
 <main>
     <section id="status">Space Casino</section>
+    <section id="Slots1">
+        <div id="slot11" class="a1"></div>
+        <div id="slot21" class="a1"></div>
+        <div id="slot31" class="a1"></div>
+        <div id="slot41" class="a1"></div>
+        <div id="slot51" class="a1"></div>
+    </section>
+
     <section id="Slots">
         <div id="slot1" class="a1"></div>
         <div id="slot2" class="a1"></div>
@@ -162,9 +195,17 @@
         <div id="slot4" class="a1"></div>
         <div id="slot5" class="a1"></div>
     </section>
-    <section onclick="doSlot()" id="Gira">TAKE A SPIN!</section>
+    <section id="Slots3">
+        <div id="slot13" class="a1"></div>
+        <div id="slot23" class="a1"></div>
+        <div id="slot33" class="a1"></div>
+        <div id="slot43" class="a1"></div>
+        <div id="slot53" class="a1"></div>
+    </section>
+
+    <section onclick="doSlot()" id="Gira">START</section>
+    <section onclick="addScore()" id="AddScore">Add 100PTS</section>
     <section id="options">
-        <img src="res/icons/audioOn.png" id="audio" class="option" onclick="toggleAudio()"/>
     </section>
 </main>
 
@@ -178,6 +219,11 @@
     let status = document.getElementById("status");
     var info = true;
     var count = 100;
+
+    function addScore() {
+        count += 100;
+        console.log(count)
+    }
 
     function doSlot() {
         if (doing) {
@@ -196,7 +242,6 @@
         var i3 = 0;
         var i4 = 0;
         var i5 = 0;
-        var sound = 0;
         status.innerHTML = "SPINNING";
         slot1 = setInterval(spin1, 50);
         slot2 = setInterval(spin2, 50);
@@ -207,7 +252,7 @@
         function spin1() {
             i1++;
             if (i1 >= numeberSlot1) {
-                coin[0].play();
+                // coin[0].play();
                 clearInterval(slot1);
                 return null;
             }
@@ -221,7 +266,7 @@
         function spin2() {
             i2++;
             if (i2 >= numeberSlot2) {
-                coin[1].play();
+                // coin[1].play();
                 clearInterval(slot2);
                 return null;
             }
@@ -235,7 +280,7 @@
         function spin3() {
             i3++;
             if (i3 >= numeberSlot3) {
-                coin[1].play();
+                // coin[1].play();
                 clearInterval(slot3);
                 return null;
             }
@@ -249,7 +294,7 @@
         function spin4() {
             i4++;
             if (i4 >= numeberSlot4) {
-                coin[1].play();
+                // coin[1].play();
                 clearInterval(slot4);
                 return null;
             }
@@ -263,7 +308,7 @@
         function spin5() {
             i5++;
             if (i5 >= numeberSlot5) {
-                coin[1].play();
+                // coin[1].play();
                 clearInterval(slot5);
                 testWin();
                 return null;
@@ -272,11 +317,7 @@
             if (slotTile.className == "a7") {
                 slotTile.className = "a0";
             }
-            sound++;
-            if (sound == spin.length) {
-                sound = 0;
-            }
-            spin[sound].play();
+            // spin[sound].play();
             slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
         }
     }
@@ -298,43 +339,18 @@
             (slot1 == slot5 && slot1 == "a7") ||
             (slot2 == slot3 && slot2 == "a7")) && !(slot1 == slot2 && slot2 == slot3 && slot3 == slot4 && slot4 == slot5 && slot1 == "a7")) {
             status.innerHTML = "YOU WIN!";
-            win.play();
+            // win.play();
             count = count + 100;
             console.log(count);
         } else {
             status.innerHTML = "YOU LOSE!";
-            lose.play();
+            // lose.play();
             count = count - 1;
             // break;
             console.log(count);
             doing = false
         }
         doing = false;
-    }
-
-    function toggleAudio() {
-        if (audio) {
-            audio = !audio;
-            for (var x of spin) {
-                x.volume = 0.5;
-            }
-            for (var x of coin) {
-                x.volume = 0.5;
-            }
-            win.volume = 1.0;
-            lose.volume = 1.0;
-        } else {
-            audio = !audio;
-            for (var x of spin) {
-                x.volume = 0;
-            }
-            for (var x of coin) {
-                x.volume = 0;
-            }
-            win.volume = 0;
-            lose.volume = 0;
-        }
-        document.getElementById("audio").src = "res/icons/audio" + (audio ? "On" : "Off") + ".png";
     }
 
     function randomInt(min, max) {
