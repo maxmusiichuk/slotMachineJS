@@ -234,6 +234,7 @@
     }
 
     function doSlot() {
+
         if (doing) {
             return null;
         }
@@ -245,6 +246,18 @@
         var numeberSlot4 = numChanges + 4 * 7 + randomInt(1, 7);
         var numeberSlot5 = numChanges + 4 * 7 + randomInt(1, 7);
 
+        var numeberSlot11 = numChanges + randomInt(1, 7);
+        var numeberSlot21 = numChanges + 2 * 7 + randomInt(1, 7);
+        var numeberSlot31 = numChanges + 4 * 7 + randomInt(1, 7);
+        var numeberSlot41 = numChanges + 4 * 7 + randomInt(1, 7);
+        var numeberSlot51 = numChanges + 4 * 7 + randomInt(1, 7);
+
+        var numeberSlot13 = numChanges + randomInt(1, 7);
+        var numeberSlot23 = numChanges + 2 * 7 + randomInt(1, 7);
+        var numeberSlot33 = numChanges + 4 * 7 + randomInt(1, 7);
+        var numeberSlot43 = numChanges + 4 * 7 + randomInt(1, 7);
+        var numeberSlot53 = numChanges + 4 * 7 + randomInt(1, 7);
+
         var i1 = 0;
         var i2 = 0;
         var i3 = 0;
@@ -252,16 +265,27 @@
         var i5 = 0;
         status.innerHTML = "SPINNING";
         balance.innerHTML = `Balance:${count}pts`;
-        slot1 = setInterval(spin1, 50);
-        slot2 = setInterval(spin2, 50);
-        slot3 = setInterval(spin3, 50);
-        slot4 = setInterval(spin4, 50);
-        slot5 = setInterval(spin5, 50);
+        slot1 = setInterval(spin1, 85);
+        slot2 = setInterval(spin2, 85);
+        slot3 = setInterval(spin3, 85);
+        slot4 = setInterval(spin4, 85);
+        slot5 = setInterval(spin5, 85);
+
+        slot11 = setInterval(spin11, 85);
+        slot21 = setInterval(spin21, 85);
+        slot31 = setInterval(spin31, 85);
+        slot41 = setInterval(spin41, 85);
+        slot51 = setInterval(spin51, 85);
+
+        slot13 = setInterval(spin13, 85);
+        slot23 = setInterval(spin23, 85);
+        slot33 = setInterval(spin33, 85);
+        slot43 = setInterval(spin43, 85);
+        slot53 = setInterval(spin53, 85);
 
         function spin1() {
             i1++;
             if (i1 >= numeberSlot1) {
-                // coin[0].play();
                 clearInterval(slot1);
                 return null;
             }
@@ -324,6 +348,139 @@
             }
             slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
         }
+
+        function spin11() {
+            i1++;
+            if (i1 >= numeberSlot11) {
+                clearInterval(slot11);
+                return null;
+            }
+            slotTile = document.getElementById("slot11");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1);
+        }
+
+        function spin21() {
+            i2++;
+            if (i2 >= numeberSlot21) {
+                clearInterval(slot21);
+                return null;
+            }
+            slotTile = document.getElementById("slot21");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
+        function spin31() {
+            i3++;
+            if (i3 >= numeberSlot31) {
+                clearInterval(slot31);
+                return null;
+            }
+            slotTile = document.getElementById("slot31");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
+        function spin41() {
+            i4++;
+            if (i4 >= numeberSlot41) {
+                clearInterval(slot41);
+                return null;
+            }
+            slotTile = document.getElementById("slot41");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
+        function spin51() {
+            i5++;
+            if (i5 >= numeberSlot51) {
+                clearInterval(slot51);
+                testWin();
+                return null;
+            }
+            slotTile = document.getElementById("slot51");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
+        function spin13() {
+            i1++;
+            if (i1 >= numeberSlot13) {
+                clearInterval(slot13);
+                return null;
+            }
+            slotTile = document.getElementById("slot13");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1);
+        }
+
+        function spin23() {
+            i2++;
+            if (i2 >= numeberSlot23) {
+                clearInterval(slot23);
+                return null;
+            }
+            slotTile = document.getElementById("slot23");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
+        function spin33() {
+            i3++;
+            if (i3 >= numeberSlot33) {
+                clearInterval(slot33);
+                return null;
+            }
+            slotTile = document.getElementById("slot33");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
+        function spin43() {
+            i4++;
+            if (i4 >= numeberSlot43) {
+                clearInterval(slot43);
+                return null;
+            }
+            slotTile = document.getElementById("slot43");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
+        function spin53() {
+            i5++;
+            if (i5 >= numeberSlot53) {
+                clearInterval(slot53);
+                testWin();
+                return null;
+            }
+            slotTile = document.getElementById("slot53");
+            if (slotTile.className == "a7") {
+                slotTile.className = "a0";
+            }
+            slotTile.className = "a" + (parseInt(slotTile.className.substring(1)) + 1)
+        }
+
     }
 
     function testWin() {
@@ -343,15 +500,12 @@
             (slot1 == slot5 && slot1 == "a7") ||
             (slot2 == slot3 && slot2 == "a7")) && !(slot1 == slot2 && slot2 == slot3 && slot3 == slot4 && slot4 == slot5 && slot1 == "a7")) {
             status.innerHTML = "YOU WIN!";
-            // win.play();
             count = count + 100;
             console.log(count);
             balance.innerHTML = `Balance:${count}pts`;
         } else {
             status.innerHTML = "YOU LOSE!";
-            // lose.play();
             count = count - 20;
-            // break;
             console.log(count);
             balance.innerHTML = `Balance:${count}pts`;
             doing = false
