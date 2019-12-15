@@ -405,7 +405,7 @@
             i5++;
             if (i5 >= numeberSlot51) {
                 clearInterval(slot51);
-                testWin();
+                // testWin();
                 return null;
             }
             slotTile = document.getElementById("slot51");
@@ -471,7 +471,7 @@
             i5++;
             if (i5 >= numeberSlot53) {
                 clearInterval(slot53);
-                testWin();
+                // testWin();
                 return null;
             }
             slotTile = document.getElementById("slot53");
@@ -490,15 +490,15 @@
         var slot4 = document.getElementById("slot4").className;
         var slot5 = document.getElementById("slot5").className;
 
-        if (((slot1 == slot2 && slot2 == slot3) ||
-            (slot1 == slot2 && slot3 == "a7") ||
-            (slot1 == slot3 && slot2 == "a7") ||
-            (slot2 == slot3 && slot1 == "a7") ||
-            (slot1 == slot2 && slot1 == "a7") ||
-            (slot1 == slot3 && slot1 == "a7") ||
-            (slot1 == slot4 && slot1 == "a7") ||
-            (slot1 == slot5 && slot1 == "a7") ||
-            (slot2 == slot3 && slot2 == "a7")) && !(slot1 == slot2 && slot2 == slot3 && slot3 == slot4 && slot4 == slot5 && slot1 == "a7")) {
+        if (((slot1 === slot2 && slot2 === slot3) ||
+            (slot1 === slot2 && slot3 === "a7") ||
+            (slot1 === slot3 && slot2 === "a7") ||
+            (slot2 === slot3 && slot1 === "a7") ||
+            (slot1 === slot2 && slot1 === "a7") ||
+            (slot1 === slot3 && slot1 === "a7") ||
+            (slot1 === slot4 && slot1 === "a7") ||
+            (slot1 === slot5 && slot1 === "a7") ||
+            (slot2 === slot3 && slot2 === "a7")) && !(slot1 === slot2 && slot2 === slot3 && slot3 === slot4 && slot4 === slot5 && slot1 === "a7")) {
             status.innerHTML = "YOU WIN!";
             count = count + 100;
             console.log(count);
